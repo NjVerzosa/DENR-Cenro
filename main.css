@@ -1,0 +1,283 @@
+body {
+  margin: 0;
+  margin-top: 100px;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url('image/hundred-islands-1.jpg') center/cover no-repeat fixed;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: first baseline;
+}
+
+.login-form-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Adjust transparency as needed */
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  width: 400px;
+  z-index: 1;
+  margin-top: 80px;
+  /* Add margin to the top */
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+
+
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+}
+
+/* Reset default styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the menu container */
+.menu {
+  margin-top: 25px;
+  margin-left:5px; 
+}
+
+/* Style the individual menu items */
+.menu li {
+  float: left;
+}
+
+.menu li a {
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Change color on hover */
+.menu li a:hover {
+  background-color: #555;
+}
+
+.table-container {
+  position: relative;
+}
+
+.button-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+
+}
+
+.export-btn {
+  margin-left: 10px;
+  /* Adjust spacing between buttons */
+  border-radius: 4px;
+  border-color: transparent;
+  background-color: green;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.import-btn {
+  margin-left: 10px;
+  /* Adjust spacing between buttons */
+  border-radius: 4px;
+  border-color: transparent;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Light transparent background */
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header-logo {
+  width: 60px;
+  /* Adjust logo width */
+  padding-left: 8px;
+}
+
+.header-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+  margin-left: 20px;
+  /* Add margin to the left */
+  padding-top: 10px;
+}
+
+.table-container {
+  background-color: rgba(255, 255, 255, 1);
+  /* Adjust transparency as needed */
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  margin-top: 250px;
+  overflow-x: auto;
+  /* Enable horizontal scrolling if needed */
+  position: fixed;
+  /* Fixed positioning */
+  top: 0;
+  /* Position at the top of the viewport */
+  left: 50%;
+  /* Align container horizontally */
+  transform: translateX(-50%);
+  /* Center horizontally */
+  z-index: 999;
+  /* Ensure it's above other content */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  /* Adjust padding as needed */
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+td {
+  color: #383838;
+}
+
+
+.archive-icon {
+  border-radius: 4px;
+  font-size: 20px;
+  color: #ffffff;
+  /* Adjust icon color */
+  background: green;
+  margin-bottom: 10px;
+  padding: 5px;
+  /* Add padding for better hover effect */
+  transition: background-color 0.3s ease;
+  /* Add transition effect */
+}
+
+.archive-icon:hover {
+  background: red;
+}
+
+.search-div {
+  height: fit-content;
+  margin-bottom: 5px;
+  margin-right: 65%;
+  padding-top: 8px;
+  padding-left: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: 25%;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+  color: #007bff;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 73%;
+}
+
+.search-bar:focus,
+.search-bar:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-info {
+  background: #01a8c1;
+  border-radius: 3px;
+  background: -moz-linear-gradient(-45deg,
+          #01a8c1 0%,
+          #2adbf7 50%,
+          #00b5d1 51%,
+          #0aafc9 71%,
+          #0599b1 100%);
+  background: -webkit-linear-gradient(-45deg,
+          #01a8c1 0%,
+          #2adbf7 50%,
+          #00b5d1 51%,
+          #0aafc9 71%,
+          #0599b1 100%);
+  background: linear-gradient(135deg,
+          #01a8c1 0%,
+          #2adbf7 50%,
+          #00b5d1 51%,
+          #0aafc9 71%,
+          #0599b1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#01a8c1', endColorstr='#0599b1', GradientType=1);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 3s ease infinite;
+  -moz-animation: AnimationName 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+  -webkit-animation: AnimationName 3s ease infinite;
+  -moz-animation: AnimationName 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+  border: medium none;
+}
+
+.search-btn {
+  border: rgba(255, 255, 255, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: #666;
+}
+
+.btn-success {
+  border-radius: 3px;
+}
