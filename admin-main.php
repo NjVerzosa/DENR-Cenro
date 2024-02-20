@@ -76,9 +76,9 @@ if (isset($_POST['userInput'])) {
 
     <div class="menu">
         <ul>
-            <li><a href="officer-main.php" class="bg-white"
+            <li><a href="admin-main.php" class="bg-white"
                     style="background-color: white; color: black;margin-top:25px;">Main List</a></li>
-            <li><a href="officer-archived.php" class="btn-success" style="margin-top:20px;">Archive List</a></li>
+            <li><a href="admin-archived.php" class="btn-success" style="margin-top:20px;">Archive List</a></li>
         </ul>
     </div>
 
