@@ -85,6 +85,7 @@ if (isset($_POST['goSearch'])) {
                         <th>Date</th>
                         <th>No. of Years</th>
                         <th>Remarks</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -116,6 +117,9 @@ if (isset($_POST['goSearch'])) {
                                 </td>
                                 <td>
                                     <?= $data['remarks']; ?>
+                                </td>
+                                <td>
+                                    <img src="Scanned/<?= $data['image']; ?>" alt="" style="width: 50px; height: 60px;">
                                 </td>
                                 <td>
                                     <a href="?id=<?= $data['id']; ?>">

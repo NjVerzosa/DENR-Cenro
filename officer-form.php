@@ -117,7 +117,7 @@
             </div>
             <div class="col-6 form-group">
               <label for="years">No. of Years</label>
-              <input type="number" class="form-control" name="no_of-year" placeholder="Enter number of years">
+              <input type="number" class="form-control" name="no_of_year" placeholder="Enter number of years">
             </div>
             <div class="col-6 form-group mx-auto text-center">
               <label for="file">Documents</label>
