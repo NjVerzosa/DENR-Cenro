@@ -62,9 +62,11 @@ if (isset($_POST['userInput'])) {
     <div class="header">
         <img src="image/logo.png" alt="Logo" class="header-logo">
         <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
-        <a href="logout.php" class="btn-success" style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
+        <a href="logout.php" class="btn-success"
+            style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
             Logout</a>
-        <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a>
+        <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/gear.png" class="header-logo"
+                style="width: 50px; margin-left: 5px;"></a>
 
     </div>
 
@@ -100,6 +102,7 @@ if (isset($_POST['userInput'])) {
                         <th>Date</th>
                         <th>Number of Years</th>
                         <th>Remarks</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -137,10 +140,13 @@ if (isset($_POST['userInput'])) {
                                     <?= $data['remarks']; ?>
                                 </td>
                                 <td>
-                                    <img src="Scanned/<?= $data['image']; ?>" alt="" style="width: 50px; height: 60px;">
+                                    <img src="Scanned/<?= $data['image']; ?>" alt="" style="width: 60px; height: 60px;">
                                 </td>
                                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal"
-                                        data-id="<?= $data['id']; ?>" data-image="<?= $data['image']; ?>">View</button></td>
+                                        data-id="<?= $data['id']; ?>" data-image="<?= $data['image']; ?>">Zoom</button><br>
+                                    <a href="officer-view.php?id=<?= $data['id']; ?>"><button type="button"
+                                            class="btn btn-primary" style="margin-top: 5px;">Open</button></a>
+                                </td>
                             </tr>
                             <?php
                         }
@@ -167,39 +173,66 @@ if (isset($_POST['userInput'])) {
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">View Image</h5>
+                    <h5 class="modal-title" id="imageModalLabel">Zoom Image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="" class="img-fluid" id="modalImage" alt="No Image">
-                    <div class="overlay-btns">
-                        <button type="button" class="btn btn-success">Export</button>
-                        <button type="button" class="btn btn-info">Print</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Add admin form -->
+    <div class="modal fade" id="gearModal" tabindex="-1" role="dialog" aria-labelledby="gearModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gearModalLabel">Add Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="officer-add-admin.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleFormControlInput1"
+                                placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" name="role" id="exampleFormControlSelect1">
+                                <option value="Admin">Admin</option>
+                                <option value="Authorized">Authorized</option>
+                            </select>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="add">Save changes</button>
+                        </div>
+                    </form>
+                </div> <!-- Move this closing div outside of modal-body -->
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 <script src="js/select.js"></script>
 <script src="js/import.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#imageModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var id = button.data('id');
-            var image = button.data('image');
-
-            var modal = $(this);
-            modal.find('#id').val(id);
-            modal.find('#modalImage').attr('src', 'Scanned/' + image);
-        });
-    });
-</script>
+<script src="js/zoomin.js"></script>
 
 </html>

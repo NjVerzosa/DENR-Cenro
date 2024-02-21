@@ -50,7 +50,7 @@ if (isset($_POST['goSearch'])) {
         <a href="logout.php" class="btn-success"
             style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
             Logout</a>
-        <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a>
+        <!-- <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a> -->
 
     </div>
 

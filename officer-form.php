@@ -85,7 +85,7 @@
     <a href="logout.php" class="btn-success"
       style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
       Logout</a>
-    <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a>
+    <!-- <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a> -->
 
   </div>
 
@@ -93,45 +93,66 @@
     <div class="login-form-container">
       <div class="login-form">
         <h2 class="mb-4" style="font-weight: bold; font-size: 30px; color: black;">Add Form</h2>
-        <form action="officer-form-end.php" method="POST" enctype="multipart/form-data">
+        <form action="officer-form-end.php" method="POST" enctype="multipart/form-data"onsubmit="return validateForm()">
           <div class="form-row">
             <div class="col-6 form-group">
               <label for="type">Type</label>
-              <input type="text" class="form-control" name="type" placeholder="Enter type">
+              <input type="text" class="form-control" name="type" required>
             </div>
             <div class="col-6 form-group">
               <label for="from">From</label>
-              <input type="text" class="form-control" name="from" placeholder="Enter from">
+              <input type="text" class="form-control" name="from" required>
             </div>
             <div class="col-6 form-group">
               <label for="to">To</label>
-              <input type="text" class="form-control" name="to" placeholder="Enter to">
+              <input type="text" class="form-control" name="to" required>
             </div>
             <div class="col-6 form-group">
               <label for="subject">Subject</label>
-              <input type="text" class="form-control" name="subject" placeholder="Enter subject">
+              <input type="text" class="form-control" name="subject" required>
             </div>
             <div class="col-6 form-group">
               <label for="date">Date</label>
-              <input type="date" class="form-control" name="date">
+              <input type="date" class="form-control" name="date" required>
             </div>
             <div class="col-6 form-group">
               <label for="years">No. of Years</label>
-              <input type="number" class="form-control" name="no_of_year" placeholder="Enter number of years">
+              <input type="number" class="form-control" name="no_of_year" required>
             </div>
             <div class="col-6 form-group mx-auto text-center">
               <label for="file">Documents</label>
-              <input type="file" class="p-1 form-control" name="image" placeholder="select file">
+              <input type="file" class="p-1 form-control" name="image" >
             </div>
           </div>
           <div class="text-center">
+            <a href="officer-main.php"><button type="button" class="btn btn-success"
+              style="width: 10%; padding: 5px;">Go to Main</button></a>
             <button type="submit" class="btn btn-primary" name="insert"
-              style="width: 25%; padding: 10px;">Submit</button>
+              style="width: 25%; padding: 10px;">SUBMIT</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </body>
+<script>
+        function validateForm() {
+            // Add client-side validation logic here
+            var type = document.getElementsByName('type')[0].value;
+            var from = document.getElementsByName('from')[0].value;
+            var to = document.getElementsByName('to')[0].value;
+            var subject = document.getElementsByName('subject')[0].value;
+            var date = document.getElementsByName('date')[0].value;
+            var no_of_year = document.getElementsByName('no_of_year')[0].value;
 
+            if (type.trim() === '' || from.trim() === '' || to.trim() === '' || subject.trim() === '' || date.trim() === '' || no_of_year.trim() === '') {
+                alert('Please fill out all fields');
+                return false;
+            }
+
+            // Additional validation logic can be added here
+
+            return true;
+        }
+    </script>
 </html>

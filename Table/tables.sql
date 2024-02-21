@@ -10,24 +10,26 @@ INSERT INTO `authorized` (`id`, `email`, `password`, `role`) VALUES
 
 CREATE TABLE `archive_docs` (
   `id` int(255) AUTO_INCREMENT PRIMARY KEY,
-  `registered_at` date NOT NULL,
+  `inserted_at` date NOT NULL,
   `type` varchar(255) NOT NULL,
   `from` varchar(255) NOT NULL,
   `to` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `date` date NOT NULL,
+  `image` varchar(255) NOT NULL,
   `no_of_year` varchar(255) NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `docs` (
   `id` int(255) AUTO_INCREMENT PRIMARY KEY,
-  `registered_at` date NOT NULL,
+  `inserted_at` date NOT NULL,
   `type` varchar(255) NOT NULL,
   `from` varchar(255) NOT NULL,
   `to` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `date` date NOT NULL,
+  `image` varchar(255) NOT NULL,
   `no_of_year` varchar(255) NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

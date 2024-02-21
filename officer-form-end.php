@@ -35,34 +35,38 @@ if (isset($_POST["insert"])) {
         $tmpName = $_FILES["image"]["tmp_name"];
         $validImageExtension = ['jpg', 'jpeg', 'png'];
 
-        $imageExtension = explode('.', $fileName);
-        $imageExtension = strtolower(end($imageExtension));
-        if (!in_array($imageExtension, $validImageExtension)) {
-            $message = "Invalid image";
-        } else {
-
-            // $check_query = mysqli_query($con, "SELECT * FROM docs WHERE type ='$type' AND `from`='$from' AND `to`='$to' AND subject='$subject' AND date='$date' AND no_of_year='$no_of_year'");
-            $check_query = mysqli_query($con, "SELECT * FROM docs WHERE subject='$subject'");
-
-            $rowCount = mysqli_num_rows($check_query);
-
-            if ($rowCount > 0) {
-                $message = "Data already exists";
+        // Check if an image is uploaded
+        if (!empty($fileName)) {
+            $imageExtension = explode('.', $fileName);
+            $imageExtension = strtolower(end($imageExtension));
+            if (!in_array($imageExtension, $validImageExtension)) {
+                $message = "Invalid image";
             } else {
-
                 $newImageName = uniqid();
                 $newImageName .= '.' . $imageExtension;
 
                 move_uploaded_file($tmpName, 'Scanned/' . $newImageName);
+            }
+        } else {
+            // Set a default image name or leave it empty based on your database schema
+            $newImageName = 'noimage.png'; // Set to an appropriate default or leave empty
+        }
 
-                $inserted_at = date('Y-m-d');
-                $result = mysqli_query($con, "INSERT INTO docs (inserted_at, type, `from`, `to`, subject, no_of_year, remarks, image) VALUES ('$inserted_at', '$type', '$from', '$to', '$subject', '$no_of_year', 'No Remarks', '$newImageName')");
+        // $check_query = mysqli_query($con, "SELECT * FROM docs WHERE type ='$type' AND `from`='$from' AND `to`='$to' AND subject='$subject' AND date='$date' AND no_of_year='$no_of_year'");
+        $check_query = mysqli_query($con, "SELECT * FROM docs WHERE subject='$subject'");
 
-                if ($result) {
-                    $message = "Data has been successfully inserted";
-                } else {
-                    $message = "Failed to insert data";
-                }
+        $rowCount = mysqli_num_rows($check_query);
+
+        if ($rowCount > 0) {
+            $message = "Data already exists";
+        } else {
+            $inserted_at = date('Y-m-d');
+            $result = mysqli_query($con, "INSERT INTO docs (inserted_at, type, `from`, `to`, subject, date, image, no_of_year, remarks) VALUES ('$inserted_at', '$type', '$from', '$to', '$subject', '$date', '$newImageName', '$no_of_year', 'No Remarks')");
+
+            if ($result) {
+                $message = "Data has been successfully inserted";
+            } else {
+                $message = "Failed to insert data";
             }
         }
 
@@ -71,7 +75,8 @@ if (isset($_POST["insert"])) {
 
         echo '<script>
             alert("' . $message . '");
-            window.location.href = "officer-main.php";
+            window.location.href = "officer-form.php";
           </script>';
     }
 }
+?>
