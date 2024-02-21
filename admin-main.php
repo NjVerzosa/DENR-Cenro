@@ -63,7 +63,8 @@ if (isset($_POST['userInput'])) {
         <a href="logout.php" class="btn-success"
             style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
             Logout</a>
-        <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a>
+            <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/gear.png" class="header-logo"
+                style="width: 50px; margin-left: 5px;"></a>
 
     </div>
 
@@ -178,6 +179,47 @@ if (isset($_POST['userInput'])) {
                         <button type="button" class="btn btn-info">Print</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add admin form -->
+    <div class="modal fade" id="gearModal" tabindex="-1" role="dialog" aria-labelledby="gearModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gearModalLabel">Add Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="admin-main-end.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleFormControlInput1"
+                                placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" name="role" id="exampleFormControlSelect1">
+                                <!-- <option value="Admin">Admin</option> -->
+                                <option value="Admin">Admin of DENR Alaminos</option>
+                            </select>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="add">Save changes</button>
+                        </div>
+                    </form>
+                </div> 
             </div>
         </div>
     </div>

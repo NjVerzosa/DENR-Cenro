@@ -191,28 +191,31 @@ if (isset($_POST['userInput'])) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="gearModalLabel">Add Admin</h5>
+                    <h5 class="modal-title" id="gearModalLabel">Add Authorized</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="officer-add-admin.php" method="POST">
+                    <form action="officer-main-end.php" method="POST">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
+                                <p><em><small>Must be active to receive verification code</small></em></p>
+
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Password</label>
                             <input type="password" class="form-control" name="password" id="exampleFormControlInput1"
                                 placeholder="">
+                                <p><em><small>Must be 8 digits</small></em></p>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Example select</label>
+                            <label for="exampleFormControlSelect1">Role of Company</label>
                             <select class="form-control" name="role" id="exampleFormControlSelect1">
-                                <option value="Admin">Admin</option>
-                                <option value="Authorized">Authorized</option>
+                                <!-- <option value="Admin">Admin</option> -->
+                                <option value="Officer">Officer at Alaminos DENR - Cenro</option>
                             </select>
                         </div>
 
@@ -222,7 +225,7 @@ if (isset($_POST['userInput'])) {
                             <button type="submit" class="btn btn-primary" name="add">Save changes</button>
                         </div>
                     </form>
-                </div> <!-- Move this closing div outside of modal-body -->
+                </div> 
             </div>
         </div>
     </div>

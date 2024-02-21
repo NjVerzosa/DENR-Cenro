@@ -5,8 +5,7 @@ CREATE TABLE `authorized` (
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 INSERT INTO `authorized` (`id`, `email`, `password`, `role`) VALUES 
-('1', 'njverzosa24@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Authorized'),
-('2', 'admin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Admin');
+('1', 'njverzosa24@gmail.com', '$2y$10$WZ5NRVsJviblXOmrWeS0jeC1Oc6/cq1/fgxEAjeGaBnlnjvZbSU.i', 'Officer');
 
 CREATE TABLE `archive_docs` (
   `id` int(255) AUTO_INCREMENT PRIMARY KEY,

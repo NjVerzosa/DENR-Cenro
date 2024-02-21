@@ -18,7 +18,7 @@ if (isset($_POST['userInput'])) {
     $result = $con->query($sql);
 } else {
     // Export all data if no search term is provided
-    $sql = "SELECT * FROM docs ORDER BY id DESC LIMIT 10;";
+    $sql = "SELECT * FROM archive_docs ORDER BY id DESC LIMIT 10;";
     $result = $con->query($sql);
 }
 
@@ -63,7 +63,6 @@ if (isset($_POST['userInput'])) {
         <a href="logout.php" class="btn-success"
             style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
             Logout</a>
-        <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a>
 
     </div>
 
@@ -83,7 +82,7 @@ if (isset($_POST['userInput'])) {
     </div>
 
     <div class="table-container">
-        <form action="officer-main-end.php" method="POST" enctype="multipart/form-data">
+        <form action="admin-main-end.php" method="POST" enctype="multipart/form-data">
             <button class="btn btn-success" name="archiveBtn"
                 onclick="return confirm('Are you sure you want to archive selected items?')">Archive</button>
             <table>

@@ -145,17 +145,89 @@ if (isset($_POST['export'])) {
 }
 
 
-if(isset($_POST['imageSrc'])) {
-    $imageSrc = $_POST['imageSrc'];
-    
-    // Use a library like TCPDF or FPDF to create a PDF
-    // Here, we'll just save the base64 image directly as a PDF file
-    $pdfData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageSrc));
-    file_put_contents('PDFs', $pdfData);
-    
-    echo json_encode(['success' => true, 'message' => 'PDF created successfully']);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Image source not provided']);
-}
+// if(isset($_POST['imageSrc'])) {
+//     $imageSrc = $_POST['imageSrc'];
 
-?>
+//     // Use a library like TCPDF or FPDF to create a PDF
+//     // Here, we'll just save the base64 image directly as a PDF file
+//     $pdfData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageSrc));
+//     file_put_contents('PDFs', $pdfData);
+
+//     echo json_encode(['success' => true, 'message' => 'PDF created successfully']);
+// } else {
+//     echo json_encode(['success' => false, 'message' => 'Image source not provided']);
+// }
+
+
+if (isset($_POST["add"])) {
+    function validate($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
+    $role = validate($_POST['role']);
+
+    $email = mysqli_real_escape_string($con, $email);
+    $password = mysqli_real_escape_string($con, $password);
+    $role = mysqli_real_escape_string($con, $role);
+
+    if (empty($email) || empty($password) || empty($role)) {
+        $message = "Please fill out all fields";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Invalid email format";
+    } elseif (strlen($password) < 8) {
+        $message = "Password must be at least 8 characters long";
+    } else {
+        $check_query = mysqli_query($con, "SELECT * FROM authorized WHERE email='$email'");
+
+        $rowCount = mysqli_num_rows($check_query);
+
+        if ($rowCount > 0) {
+            $message = "Email already exists";
+        } else {
+            $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+            $result = mysqli_query($con, "INSERT INTO authorized (email, password, role) VALUES ('$email', '$password_hashed', '$role')");
+
+            if ($result) {
+                require "Mail/phpmailer/PHPMailerAutoload.php";
+                $mail = new PHPMailer;
+
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure = 'tls';
+
+                // $mail->Username = 'njverzosa24@gmail.com';
+                // $mail->Password = 'lhfi snfv vqcb oelt';
+
+                $mail->Username = 'thisdomain24@gmail.com';
+                $mail->Password = 'rhtq qcaj mdqp sdkv';
+
+
+                $mail->setFrom('thisdomain24@gmail.com', 'DENR-Cenro Western Alaminos');
+                $mail->addAddress('thisdomain24@gmail.com');//Add Notif Receiver
+
+                $mail->isHTML(true);
+                $mail->Subject = "New Officer Added";
+                $mail->Body = "<p>A new authorized user has been added with the email address: <strong>$email</strong>.</p><p>This message is for notification purposes only.</p>";
+                
+                if (!$mail->send()) {
+                    $message = "Email notification could not be sent due to technical issues.";
+                } else {
+                    $message = "Officer successfully added";
+                }
+            }
+
+            echo '<script>
+            alert("' . $message . '");
+            window.location.href = "officer-main.php";
+          </script>';
+        }
+    }
+}
