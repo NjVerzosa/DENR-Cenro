@@ -6,7 +6,7 @@ include 'config.php';
 if (isset($_POST['userInput'])) {
     $userInput = mysqli_real_escape_string($con, $_POST['userInput']);
     // Modify the query to include the search condition
-    $sql = "SELECT * FROM docs WHERE 
+    $sql = "SELECT * FROM archive_docs WHERE 
             type LIKE '%$userInput%' OR
             `from` LIKE '%$userInput%' OR
             `to` LIKE '%$userInput%' OR
@@ -61,8 +61,8 @@ if (isset($_POST['userInput'])) {
         <img src="image/logo.png" alt="Logo" class="header-logo">
         <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
         <a href="logout.php" class="btn-success"
-            style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
-            Logout</a>
+            style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
+            LOGOUT</a>
 
     </div>
 

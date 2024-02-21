@@ -63,9 +63,9 @@ if (isset($_POST['userInput'])) {
         <img src="image/logo.png" alt="Logo" class="header-logo">
         <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
         <a href="logout.php" class="btn-success"
-            style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
-            Logout</a>
-        <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/gear.png" class="header-logo"
+            style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
+            LOGOUT</a>
+        <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/add.png" class="header-logo"
                 style="width: 50px; margin-left: 5px;"></a>
 
     </div>
@@ -202,14 +202,14 @@ if (isset($_POST['userInput'])) {
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
-                                <p><em><small>Must be active to receive verification code</small></em></p>
+                            <p><em><small>Must be active to receive verification code</small></em></p>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Password</label>
                             <input type="password" class="form-control" name="password" id="exampleFormControlInput1"
                                 placeholder="">
-                                <p><em><small>Must be 8 digits</small></em></p>
+                            <p><em><small>Must be 8 digits</small></em></p>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Role of Company</label>
@@ -225,7 +225,7 @@ if (isset($_POST['userInput'])) {
                             <button type="submit" class="btn btn-primary" name="add">Save changes</button>
                         </div>
                     </form>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

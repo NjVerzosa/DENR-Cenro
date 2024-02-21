@@ -83,9 +83,8 @@
     <img src="image/logo.png" alt="Logo" class="header-logo">
     <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
     <a href="logout.php" class="btn-success"
-      style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
-      Logout</a>
-    <!-- <a href="#"><img src="image/gear.png" class="header-logo" style="width: 50px; margin-left: 5px;"></a> -->
+            style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
+            LOGOUT</a>
 
   </div>
 

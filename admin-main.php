@@ -61,11 +61,10 @@ if (isset($_POST['userInput'])) {
         <img src="image/logo.png" alt="Logo" class="header-logo">
         <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
         <a href="logout.php" class="btn-success"
-            style="color: white; padding: 5px; background-color: red; margin-left: 750px;">
-            Logout</a>
-            <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/gear.png" class="header-logo"
+            style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
+            LOGOUT</a>
+        <a href="#" data-toggle="modal" data-target="#gearModal"><img src="image/add.png" class="header-logo"
                 style="width: 50px; margin-left: 5px;"></a>
-
     </div>
 
     <div class="search-div">
