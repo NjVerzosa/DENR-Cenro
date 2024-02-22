@@ -1,3 +1,8 @@
+<?php
+include 'officer-sessions.php';
+include 'config.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,8 +88,8 @@
     <img src="image/logo.png" alt="Logo" class="header-logo">
     <p class="header-text"><b>DENR CENRO WESTERN PANGASINAN</b></p>
     <a href="logout.php" class="btn-success"
-            style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
-            LOGOUT</a>
+      style="color: white; padding: 5px; background-color: red; margin-left: 710px;">
+      LOGOUT</a>
 
   </div>
 
@@ -92,7 +97,8 @@
     <div class="login-form-container">
       <div class="login-form">
         <h2 class="mb-4" style="font-weight: bold; font-size: 30px; color: black;">Add Form</h2>
-        <form action="officer-form-end.php" method="POST" enctype="multipart/form-data"onsubmit="return validateForm()">
+        <form action="officer-form-end.php" method="POST" enctype="multipart/form-data"
+          onsubmit="return validateForm()">
           <div class="form-row">
             <div class="col-6 form-group">
               <label for="type">Type</label>
@@ -120,12 +126,12 @@
             </div>
             <div class="col-6 form-group mx-auto text-center">
               <label for="file">Documents</label>
-              <input type="file" class="p-1 form-control" name="image" >
+              <input type="file" class="p-1 form-control" name="image">
             </div>
           </div>
           <div class="text-center">
             <a href="officer-main.php"><button type="button" class="btn btn-success"
-              style="width: 10%; padding: 5px;">Go to Main</button></a>
+                style="width: 10%; padding: 5px;">Go to Main</button></a>
             <button type="submit" class="btn btn-primary" name="insert"
               style="width: 25%; padding: 10px;">SUBMIT</button>
           </div>
@@ -135,23 +141,24 @@
   </div>
 </body>
 <script>
-        function validateForm() {
-            // Add client-side validation logic here
-            var type = document.getElementsByName('type')[0].value;
-            var from = document.getElementsByName('from')[0].value;
-            var to = document.getElementsByName('to')[0].value;
-            var subject = document.getElementsByName('subject')[0].value;
-            var date = document.getElementsByName('date')[0].value;
-            var no_of_year = document.getElementsByName('no_of_year')[0].value;
+  function validateForm() {
+    // Add client-side validation logic here
+    var type = document.getElementsByName('type')[0].value;
+    var from = document.getElementsByName('from')[0].value;
+    var to = document.getElementsByName('to')[0].value;
+    var subject = document.getElementsByName('subject')[0].value;
+    var date = document.getElementsByName('date')[0].value;
+    var no_of_year = document.getElementsByName('no_of_year')[0].value;
 
-            if (type.trim() === '' || from.trim() === '' || to.trim() === '' || subject.trim() === '' || date.trim() === '' || no_of_year.trim() === '') {
-                alert('Please fill out all fields');
-                return false;
-            }
+    if (type.trim() === '' || from.trim() === '' || to.trim() === '' || subject.trim() === '' || date.trim() === '' || no_of_year.trim() === '') {
+      alert('Please fill out all fields');
+      return false;
+    }
 
-            // Additional validation logic can be added here
+    // Additional validation logic can be added here
 
-            return true;
-        }
-    </script>
+    return true;
+  }
+</script>
+
 </html>

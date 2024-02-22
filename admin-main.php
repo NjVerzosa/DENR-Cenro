@@ -155,7 +155,7 @@ if (isset($_POST['userInput'])) {
                 </tbody>
             </table>
             <div class="button-container">
-                <a href="officer-form.php"><button type="button" class="import-btn">Insert</button></a>
+                <!-- <a href="officer-form.php"><button type="button" class="import-btn">Insert</button></a> -->
                 <button type="submit" class="export-btn" name="export">Export to Excel</button>
                 <button type="submit" class="import-btn" name="import">Import from Excel</button>
             </div>

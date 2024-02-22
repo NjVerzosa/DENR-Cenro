@@ -82,9 +82,9 @@ if (isset($_POST['userInput'])) {
     </div>
 
     <div class="table-container">
-        <form action="admin-main-end.php" method="POST" enctype="multipart/form-data">
+        <form action="admin-archived-end.php" method="POST" enctype="multipart/form-data">
             <button class="btn btn-success" name="archiveBtn"
-                onclick="return confirm('Are you sure you want to archive selected items?')">Archive</button>
+                onclick="return confirm('Are you sure you want to archive selected items?')">Restore</button>
             <table>
                 <thead>
                     <tr>

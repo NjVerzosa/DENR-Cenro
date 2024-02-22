@@ -145,20 +145,6 @@ if (isset($_POST['export'])) {
 }
 
 
-// if(isset($_POST['imageSrc'])) {
-//     $imageSrc = $_POST['imageSrc'];
-
-//     // Use a library like TCPDF or FPDF to create a PDF
-//     // Here, we'll just save the base64 image directly as a PDF file
-//     $pdfData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageSrc));
-//     file_put_contents('PDFs', $pdfData);
-
-//     echo json_encode(['success' => true, 'message' => 'PDF created successfully']);
-// } else {
-//     echo json_encode(['success' => false, 'message' => 'Image source not provided']);
-// }
-
-
 if (isset($_POST["add"])) {
     function validate($data)
     {
