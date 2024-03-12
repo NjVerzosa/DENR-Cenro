@@ -74,12 +74,6 @@ include 'config.php';
                         <img src="Scanned/<?= $row['image']; ?>" class="img-fluid" id="modalImage" alt="No Image"
                             style="width: 100%; height: 100%;">
                     </div>
-
-
-
-
-
-
                     <div class="signed">
                         <div class="signedBy">
                             <p>
